@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/banner.png" alt="IJS Nexus Explorer Banner" width="100%">
+  <img src="public/bannerAAS.png" alt="IJS Nexus Explorer Banner" width="100%">
 </p>
 
 <h1 align="center">IJS Nexus Explorer</h1>

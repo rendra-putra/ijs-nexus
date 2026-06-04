@@ -275,7 +275,7 @@ export default function JusticeDashboard() {
           <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} style={{ flex: 1, minHeight: 500 }}>
             <Card 
               style={{ borderRadius: 16, border: '1px solid #f0f0f0', background: '#ffffff', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: "0 10px 30px rgba(0,0,0,0.05)", overflow: 'hidden' }}
-              bodyStyle={{ padding: 0, width: '100%', height: '100%', position: 'relative' }}
+              styles={{ body: { padding: 0, width: '100%', height: '100%', position: 'relative' } }}
             >
               <div style={{ 
                 position: 'absolute', top: 16, left: 16, zIndex: 1000,
@@ -344,8 +344,10 @@ export default function JusticeDashboard() {
                 </Space>
               }
               style={{ borderRadius: 16, border: '1px solid #f0f0f0', height: '100%', background: '#ffffff', boxShadow: "0 10px 30px rgba(0,0,0,0.05)", overflowY: 'auto', display: 'flex', flexDirection: 'column' }}
-              headStyle={{ borderBottom: '1px solid #f0f0f0' }}
-              bodyStyle={{ flex: 1, padding: '20px', display: 'flex', flexDirection: 'column', overflow: 'auto' }}
+              styles={{ 
+                header: { borderBottom: '1px solid #f0f0f0' },
+                body: { flex: 1, padding: '20px', display: 'flex', flexDirection: 'column', overflow: 'auto' }
+              }}
             >
               {selectedMetric !== "None" ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 24, height: '100%' }}>

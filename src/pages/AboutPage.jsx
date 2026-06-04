@@ -43,6 +43,29 @@ export default function AboutPage() {
         {/* HERO SECTION */}
         <motion.div variants={itemVariants} className="about-hero">
           <div className="about-hero-glow" />
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            style={{ marginBottom: 40, display: 'flex', justifyContent: 'center' }}
+          >
+            <img 
+              src="/bannerAAS.png" 
+              alt="AAS Project Banner" 
+              style={{ 
+                width: "100%", 
+                maxWidth: 800, 
+                borderRadius: 24, 
+                boxShadow: isDark 
+                  ? "0 24px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.1)" 
+                  : "0 24px 48px rgba(99,102,241,0.2), 0 0 0 1px rgba(0,0,0,0.05)",
+                objectFit: "cover",
+                display: "block"
+              }} 
+            />
+          </motion.div>
+
           <Title level={1} className="about-hero-title">
             IJS Nexus Explorer
           </Title>

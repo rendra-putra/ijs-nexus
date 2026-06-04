@@ -81,26 +81,6 @@ const LoginPage = () => {
     }
   };
 
-  // =========================
-  // SSO LOGIN
-  // =========================
-  const handleSSOLogin = () => {
-    const state = crypto.randomUUID();
-    sessionStorage.setItem("oauth_state", state);
-
-    const redirectUri = encodeURIComponent(
-      `${window.location.origin}/oauth-success`
-    );
-
-    const ssoUrl =
-      `https://sso.bps.go.id/auth/realms/pegawai-bps/protocol/openid-connect/auth` +
-      `?response_type=code` +
-      `&client_id=03330-ipas-j8u` +
-      `&redirect_uri=${redirectUri}` +
-      `&state=${state}`;
-
-    window.location.href = ssoUrl;
-  };
 
   // =========================
   // UI
@@ -161,17 +141,7 @@ const LoginPage = () => {
 
           <LoginForm loading={loading} onSubmit={handleLogin} />
 
-          <Divider
-            style={{
-              borderColor: isDark ? "rgba(255,255,255,0.15)" : undefined,
-            }}
-          >
-            <span style={{ color: isDark ? "#a6a6a6" : "inherit" }}>OR</span>
-          </Divider>
 
-          <Button block size="large" onClick={handleSSOLogin}>
-            Login with SSO
-          </Button>
         </Card>
       </div>
     </>
