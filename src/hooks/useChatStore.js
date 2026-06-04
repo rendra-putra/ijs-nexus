@@ -131,6 +131,7 @@ export function useChatStore() {
   }, [currentUserId]);
 
   const deleteChat = useCallback((id) => {
+    if (id === 'demo-kuhp') return;
     setSessions((prev) => prev.filter(s => s.id !== id));
     if (activeChatId === id) {
       setActiveChatIdState(null);

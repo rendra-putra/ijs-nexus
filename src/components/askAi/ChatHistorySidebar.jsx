@@ -103,28 +103,37 @@ export default function ChatHistorySidebar({
 
   /* ── Context menu items ───────────────────────────────────── */
 
-  const getMenuItems = (chat) => [
-    {
-      key: "pin",
-      icon: chat.pinned ? <PushpinFilled /> : <PushpinOutlined />,
-      label: chat.pinned ? "Unpin" : "Pin",
-      onClick: () => onPinChat(chat.id),
-    },
-    {
-      key: "rename",
-      icon: <EditOutlined />,
-      label: "Rename",
-      onClick: () => startRename(chat),
-    },
-    { type: "divider" },
-    {
-      key: "delete",
-      icon: <DeleteOutlined />,
-      label: "Hapus",
-      danger: true,
-      onClick: () => handleDelete(chat),
-    },
-  ];
+  const getMenuItems = (chat) => {
+    const items = [
+      {
+        key: "pin",
+        icon: chat.pinned ? <PushpinFilled /> : <PushpinOutlined />,
+        label: chat.pinned ? "Unpin" : "Pin",
+        onClick: () => onPinChat(chat.id),
+      },
+      {
+        key: "rename",
+        icon: <EditOutlined />,
+        label: "Rename",
+        onClick: () => startRename(chat),
+      },
+    ];
+
+    if (chat.id !== 'demo-kuhp') {
+      items.push(
+        { type: "divider" },
+        {
+          key: "delete",
+          icon: <DeleteOutlined />,
+          label: "Hapus",
+          danger: true,
+          onClick: () => handleDelete(chat),
+        }
+      );
+    }
+
+    return items;
+  };
 
   /* ── Render a single chat item ────────────────────────────── */
 
