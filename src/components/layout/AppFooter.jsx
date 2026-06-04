@@ -1,6 +1,5 @@
 // src/components/layout/AppFooter.jsx
 import {
-  GithubOutlined,
   LinkedinOutlined,
   MailOutlined,
 } from "@ant-design/icons";
@@ -33,13 +32,10 @@ const AppFooter = () => {
     >
       <Space direction="vertical" size={8}>
         <Space size="large">
-          <a href="#" style={{ color: "inherit" }}>
-            <GithubOutlined style={{ fontSize: 20 }} />
-          </a>
-          <a href="#" style={{ color: "inherit" }}>
+          <a href="https://linkedin.com/in/rendra-ap" target="_blank" rel="noopener noreferrer" style={{ color: "inherit" }}>
             <LinkedinOutlined style={{ fontSize: 20 }} />
           </a>
-          <a href="#" style={{ color: "inherit" }}>
+          <a href="mailto:rendra2p@gmail.com" style={{ color: "inherit" }}>
             <MailOutlined style={{ fontSize: 20 }} />
           </a>
         </Space>

@@ -66,13 +66,37 @@ export default function AboutPage() {
             />
           </motion.div>
 
-          <Title level={1} className="about-hero-title">
+          <Title level={1} className="about-hero-title" style={{ marginTop: 24, fontSize: 48 }}>
             IJS Nexus Explorer
           </Title>
-          <Paragraph className="about-hero-subtitle" type="secondary">
-            A unified platform integrating geospatial crime analysis, socio-economic correlations, 
-            and AI-powered legal assistance to empower policy makers, researchers, and communities across Indonesia.
-          </Paragraph>
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <div style={{
+              background: isDark ? "rgba(255, 255, 255, 0.03)" : "rgba(255, 255, 255, 0.7)",
+              backdropFilter: "blur(16px)",
+              padding: "28px 40px",
+              borderRadius: 20,
+              border: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(255, 255, 255, 0.5)",
+              maxWidth: 800,
+              margin: "0 auto",
+              boxShadow: isDark ? "0 16px 40px rgba(0, 0, 0, 0.3)" : "0 16px 40px rgba(79, 70, 229, 0.08)"
+            }}>
+              <Paragraph style={{ 
+                fontSize: 18, 
+                lineHeight: 1.8, 
+                marginBottom: 0, 
+                color: isDark ? "rgba(255, 255, 255, 0.85)" : "#374151",
+                fontWeight: 500,
+                letterSpacing: "0.2px"
+              }}>
+                A unified intelligence platform integrating <strong style={{ color: isDark ? "#818cf8" : "#4f46e5" }}>geospatial crime analysis</strong>, <strong style={{ color: isDark ? "#f472b6" : "#ec4899" }}>socio-economic correlations</strong>, 
+                and <strong style={{ color: isDark ? "#34d399" : "#10b981" }}>AI-powered legal assistance</strong> to empower policymakers, researchers, and communities across Indonesia.
+              </Paragraph>
+            </div>
+          </motion.div>
         </motion.div>
 
         {/* MISSION & VISION */}
@@ -116,47 +140,36 @@ export default function AboutPage() {
           <Title level={2} style={{ textAlign: "center", marginBottom: 48, fontWeight: 700 }}>
             Core Capabilities
           </Title>
-          <Row gutter={[24, 24]}>
-            <Col xs={24} sm={12} md={6}>
+          <Row gutter={[24, 24]} justify="center">
+            <Col xs={24} sm={24} md={8}>
               <div className="feature-box">
-                <GlobalOutlined style={{ fontSize: 24, color: "#3b82f6", marginBottom: 12 }} />
-                <div className="feature-title">Geospatial Explorer</div>
-                <div className="feature-title" style={{ fontSize: 12, color: "#3b82f6", marginTop: -8 }}>Hotspots & Boundaries</div>
-                <div className="feature-desc">
+                <GlobalOutlined style={{ fontSize: 28, color: "#3b82f6", marginBottom: 16 }} />
+                <div className="feature-title" style={{ fontSize: 18 }}>Geospatial Explorer</div>
+                <div className="feature-title" style={{ fontSize: 13, color: "#3b82f6", marginTop: -8, opacity: 0.8 }}>Hotspots & Boundaries</div>
+                <div className="feature-desc" style={{ marginTop: 12 }}>
                   Interactive mapping of crime statistics down to the Kabupaten level. Switch between point-based hotspots and choropleth regional boundaries effortlessly.
                 </div>
               </div>
             </Col>
 
-            <Col xs={24} sm={12} md={6}>
+            <Col xs={24} sm={24} md={8}>
               <div className="feature-box">
-                <DotChartOutlined style={{ fontSize: 24, color: "#ec4899", marginBottom: 12 }} />
-                <div className="feature-title">Socio-Economic Correlation</div>
-                <div className="feature-title" style={{ fontSize: 12, color: "#ec4899", marginTop: -8 }}>Statistical Analysis</div>
-                <div className="feature-desc">
+                <DotChartOutlined style={{ fontSize: 28, color: "#ec4899", marginBottom: 16 }} />
+                <div className="feature-title" style={{ fontSize: 18 }}>Socio-Economic Analytics</div>
+                <div className="feature-title" style={{ fontSize: 13, color: "#ec4899", marginTop: -8, opacity: 0.8 }}>Correlation & Insights</div>
+                <div className="feature-desc" style={{ marginTop: 12 }}>
                   Dynamically compare regional crime rates against population density, education indexes, and income per capita using Pearson correlation models.
                 </div>
               </div>
             </Col>
 
-            <Col xs={24} sm={12} md={6}>
+            <Col xs={24} sm={24} md={8}>
               <div className="feature-box">
-                <RobotOutlined style={{ fontSize: 24, color: "#10b981", marginBottom: 12 }} />
-                <div className="feature-title">Ask AI (Chatbot)</div>
-                <div className="feature-title" style={{ fontSize: 12, color: "#10b981", marginTop: -8 }}>Virtual Legal Assistant</div>
-                <div className="feature-desc">
+                <RobotOutlined style={{ fontSize: 28, color: "#10b981", marginBottom: 16 }} />
+                <div className="feature-title" style={{ fontSize: 18 }}>Ask AI</div>
+                <div className="feature-title" style={{ fontSize: 13, color: "#10b981", marginTop: -8, opacity: 0.8 }}>Virtual Legal Assistant</div>
+                <div className="feature-desc" style={{ marginTop: 12 }}>
                   An intelligent agent trained specifically on KUHP, KUHAP, and UU ITE, capable of breaking down complex legal jargon into understandable insights.
-                </div>
-              </div>
-            </Col>
-            
-            <Col xs={24} sm={12} md={6}>
-              <div className="feature-box">
-                <BookOutlined style={{ fontSize: 24, color: "#f59e0b", marginBottom: 12 }} />
-                <div className="feature-title">Community Forums</div>
-                <div className="feature-title" style={{ fontSize: 12, color: "#f59e0b", marginTop: -8 }}>Public Discourse</div>
-                <div className="feature-desc">
-                  A moderated space for users to write articles, open discussions, and debate inclusive justice topics safely and transparently.
                 </div>
               </div>
             </Col>
