@@ -1,0 +1,12 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vite_frontend
+    ports:
+      - "8080:80"
+    environment:
+      # Runtime environment variables (DYNAMIC)
+      VITE_API_BASE_URL: "https://ipas-gateway-dev.bps.go.id"
+    restart: unless-stopped
