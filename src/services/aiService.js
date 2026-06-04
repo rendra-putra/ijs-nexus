@@ -24,6 +24,38 @@ export const getChatHistoryRequest = async (sessionId) => {
     return await response.json();
   } catch (error) {
     console.warn("Backend unreachable, returning dummy history.", error);
+    
+    if (sessionId === 'demo-kuhp' || true) {
+      return {
+        messages: [
+          {
+            id: "msg-1",
+            role: "user",
+            content: "Halo, bisa jelaskan apa saja perubahan utama dalam KUHP Baru (UU No. 1 Tahun 2023)?",
+            created_at: Date.now() / 1000 - 3600
+          },
+          {
+            id: "msg-2",
+            role: "assistant",
+            content: "Tentu! KUHP Baru (UU No. 1 Tahun 2023) dirancang untuk menggantikan KUHP peninggalan kolonial Belanda. Beberapa perubahan utamanya meliputi:\n\n1. **Keadilan Restoratif (Restorative Justice):** Mengedepankan pemulihan kerugian korban daripada sekadar penghukuman.\n2. **Tindak Pidana Khusus:** Mengatur korupsi, terorisme, dan pelanggaran HAM berat yang sebelumnya diatur terpisah.\n3. **Living Law (Hukum yang Hidup):** Mengakui hukum adat sebagai dasar pemidanaan di daerah tertentu.\n4. **Pidana Mati Bersyarat:** Pidana mati bukan lagi hukuman pokok, melainkan diiringi masa percobaan 10 tahun.",
+            created_at: Date.now() / 1000 - 3590
+          },
+          {
+            id: "msg-3",
+            role: "user",
+            content: "Menarik. Terkait pasal kohabitasi yang sempat ramai, bagaimana sebenarnya pengaturannya?",
+            created_at: Date.now() / 1000 - 3500
+          },
+          {
+            id: "msg-4",
+            role: "assistant",
+            content: "Pasal kohabitasi (hidup bersama di luar perkawinan) diatur dalam **Pasal 412 KUHP Baru**. Namun, pasal ini merupakan **delik aduan absolut**.\n\nArtinya, penuntutan hanya bisa dilakukan jika ada aduan langsung dari pihak yang dirugikan, yaitu suami/istri (bagi yang sudah terikat perkawinan), atau orang tua/anaknya. Masyarakat umum, kepala desa, maupun Satpol PP tidak berhak melakukan penggerebekan tanpa adanya aduan resmi dari keluarga inti tersebut.",
+            created_at: Date.now() / 1000 - 3490
+          }
+        ]
+      };
+    }
+    
     return { messages: [] };
   }
 };  

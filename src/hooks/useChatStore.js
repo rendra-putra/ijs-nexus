@@ -13,9 +13,23 @@ const SESSIONS_KEY = "askAi_sessions";
 function loadSessions() {
   try {
     const stored = localStorage.getItem(SESSIONS_KEY);
-    return stored ? JSON.parse(stored) : [];
+    const parsed = stored ? JSON.parse(stored) : [];
+    if (parsed.length === 0) {
+      return [{
+        id: 'demo-kuhp',
+        title: 'Q&A: KUHP Baru (UU 1/2023)',
+        userId: 'demo',
+        updatedAt: new Date().toISOString(),
+      }];
+    }
+    return parsed;
   } catch (e) {
-    return [];
+    return [{
+      id: 'demo-kuhp',
+      title: 'Q&A: KUHP Baru (UU 1/2023)',
+      userId: 'demo',
+      updatedAt: new Date().toISOString(),
+    }];
   }
 }
 
