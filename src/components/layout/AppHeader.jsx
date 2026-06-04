@@ -3,9 +3,7 @@ import {
   MenuFoldOutlined,
   MenuOutlined,
   MenuUnfoldOutlined,
-  MoonOutlined,
   MoreOutlined,
-  SunOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 import {
@@ -42,12 +40,6 @@ const AppHeader = ({
   };
 
   const mobileMenuItems = [
-    {
-      key: "theme",
-      icon: isDark ? <SunOutlined /> : <MoonOutlined />,
-      label: isDark ? "Light Mode" : "Dark Mode",
-      onClick: toggleTheme,
-    },
     ...(isAuthenticated
       ? [
         {
@@ -151,14 +143,7 @@ const AppHeader = ({
             </Space>
           )}
 
-          <Tooltip title={isDark ? "Light Mode" : "Dark Mode"}>
-            <Button
-              type="text"
-              onClick={toggleTheme}
-              icon={isDark ? <SunOutlined /> : <MoonOutlined />}
-              style={{ color: isDark ? "white" : "black" }}
-            />
-          </Tooltip>
+
 
           {isAuthenticated && (
             <Tooltip title="Logout">

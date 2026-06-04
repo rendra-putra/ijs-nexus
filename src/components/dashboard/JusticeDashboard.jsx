@@ -160,7 +160,7 @@ export default function JusticeDashboard() {
   }, [selectedRegion, selectedIndicator, selectedYear, provinces]);
 
   return (
-    <div style={{ padding: "24px 24px", maxWidth: 1600, margin: "0 auto", position: "relative", zIndex: 1, height: '100%', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ padding: "0", maxWidth: 1600, margin: "0 auto", position: "relative", zIndex: 1, height: '100%', display: 'flex', flexDirection: 'column' }}>
       <motion.div 
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -168,11 +168,20 @@ export default function JusticeDashboard() {
         style={{ marginBottom: 24 }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16, marginBottom: 16 }}>
-          <div style={{ textAlign: "left" }}>
-            <Title level={3} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 800, margin: 0, color: '#111827' }}>
+          <div style={{ textAlign: "left", marginTop: 8 }}>
+            <div style={{ 
+              fontSize: 22, 
+              fontWeight: 800, 
+              fontFamily: "'Inter', sans-serif", 
+              background: 'linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              marginBottom: 4,
+              lineHeight: 1.2
+            }}>
               IJS Nexus Explorer
-            </Title>
-            <Text type="secondary" style={{ fontSize: 14 }}>
+            </div>
+            <Text type="secondary" style={{ fontSize: 13, letterSpacing: 0.3 }}>
               Interactive analytics for inclusive justice data across Indonesia.
             </Text>
           </div>

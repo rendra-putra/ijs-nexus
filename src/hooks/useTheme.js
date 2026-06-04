@@ -2,20 +2,14 @@
 import { useState, useEffect } from 'react';
 
 export const useTheme = () => {
-  const getInitialTheme = () => {
-    const stored = localStorage.getItem('theme');
-    if (stored) return stored === 'dark';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  };
-
-  const [isDark, setIsDark] = useState(getInitialTheme);
+  const isDark = false;
 
   useEffect(() => {
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
-  }, [isDark]);
+    localStorage.setItem('theme', 'light');
+    document.body.setAttribute('data-theme', 'light');
+  }, []);
 
-  const toggleTheme = () => setIsDark((prev) => !prev);
+  const toggleTheme = () => {};
 
   return { isDark, toggleTheme };
 };

@@ -1,6 +1,5 @@
 import { Grid, Layout } from "antd";
 import { useEffect, useState } from "react";
-import AppBreadcrumb from "./AppBreadcrumb";
 import AppFooter from "./AppFooter";
 import AppHeader from "./AppHeader";
 import AppSidebar from "./AppSidebar";
@@ -81,8 +80,6 @@ export default function MainLayout({ children, fullScreen = false }) {
             ) : (
               <>
                 <div style={{ flex: 1, padding: 24 }}>
-                  <AppBreadcrumb />
-
                   {/* PAGE CONTENT */}
                   <div style={{ flex: 1 }}>
                     {children}
