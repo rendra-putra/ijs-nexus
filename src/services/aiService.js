@@ -12,8 +12,15 @@ const getHeaders = () => {
 
 const delay = (ms) => new Promise(res => setTimeout(res, ms));
 
+const checkDemoMode = () => {
+  if (window.location.hostname.includes("vercel.app")) {
+    throw new Error("Vercel deployment detected - forcing dummy mode without network request.");
+  }
+};
+
 export const getChatHistoryRequest = async (sessionId) => {
   try {
+    checkDemoMode();
     const response = await fetch(`${BASE_URL}/history-justice/${sessionId}`, {
       method: "GET",
       headers: getHeaders(),
@@ -23,9 +30,7 @@ export const getChatHistoryRequest = async (sessionId) => {
     
     return await response.json();
   } catch (error) {
-    console.warn("Backend unreachable, returning dummy history.", error);
-    
-    if (sessionId === 'demo-kuhp' || true) {
+    if (sessionId === 'demo-kuhp') {
       return {
         messages: [
           {
@@ -62,6 +67,7 @@ export const getChatHistoryRequest = async (sessionId) => {
 
 export const createSessionRequest = async () => {
   try {
+    checkDemoMode();
     const response = await fetch(`${BASE_URL}/session-justice`, {
       method: "POST",
       headers: getHeaders(),
@@ -71,13 +77,13 @@ export const createSessionRequest = async () => {
 
     return await response.json();
   } catch (error) {
-    console.warn("Backend unreachable, returning dummy session.", error);
     return { data: { id: `dummy-session-${Date.now()}` } };
   }
 };
 
 export const sendCompletionRequest = async (question, sessionId, stream = false) => {
   try {
+    checkDemoMode();
     const response = await fetch(`${BASE_URL}/completion-justice`, {
       method: "POST",
       headers: getHeaders(),
@@ -92,10 +98,8 @@ export const sendCompletionRequest = async (question, sessionId, stream = false)
 
     return await response.json();
   } catch (error) {
-    console.warn("Backend unreachable, returning dummy completion.", error);
-    await delay(1500); // Simulate network delay
+    await delay(1500); 
     
-    // Generate a contextual dummy response
     const dummyAnswers = [
       "Menurut pasal-pasal terkait, tindakan tersebut dapat dikenakan sanksi sesuai dengan peraturan perundang-undangan yang berlaku di Indonesia.",
       "Sebagai AI versi demo (dummy mode), saya tidak terhubung dengan database aktual saat ini. Namun secara umum, hukum di Indonesia mengatur hal tersebut secara ketat.",
