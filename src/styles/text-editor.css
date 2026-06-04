@@ -1,0 +1,90 @@
+/* Wrapper utama */
+.editor-light-wrapper .editor-light {
+  background: #ffffff;
+  border-radius: 8px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Toast UI root */
+.editor-light-wrapper .toastui-editor-defaultUI {
+  background-color: #ffffff !important;
+  color: #000 !important;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Area markdown + preview */
+.editor-light-wrapper .toastui-editor-md-container,
+.editor-light-wrapper .toastui-editor-preview {
+  background-color: #ffffff !important;
+  color: #000 !important;
+}
+
+/* Toolbar */
+.editor-light-wrapper .toastui-editor-toolbar {
+  background: #f5f5f5 !important;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Text area */
+.editor-light-wrapper .toastui-editor-contents {
+  color: #000 !important;
+}
+
+/* Cursor + input */
+.editor-light-wrapper textarea {
+  background: #ffffff !important;
+  color: #000 !important;
+}
+
+/* ========================= */
+/* Mobile Responsive Fixes */
+/* ========================= */
+
+@media (max-width: 576px) {
+  /* Toolbar scroll horizontal */
+  .editor-light-wrapper .toastui-editor-toolbar {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px;
+    height: auto !important;
+  }
+
+  /* Prevent toolbar buttons shrinking */
+  .editor-light-wrapper .toastui-editor-toolbar-group,
+  .editor-light-wrapper .toastui-editor-toolbar-icons {
+    flex-shrink: 0;
+  }
+
+  /* Popup menu responsive */
+  .editor-light-wrapper .toastui-editor-popup,
+  .editor-light-wrapper .toastui-editor-dropdown-toolbar {
+    max-width: calc(100vw - 24px) !important;
+    width: auto !important;
+    left: 12px !important;
+    right: 12px !important;
+    overflow-x: auto;
+  }
+
+  /* Popup body */
+  .editor-light-wrapper .toastui-editor-popup-body {
+    overflow-x: auto;
+  }
+
+  /* Markdown + preview horizontal scroll */
+  .editor-light-wrapper .toastui-editor-md-container,
+  .editor-light-wrapper .toastui-editor-preview {
+    overflow-x: auto;
+  }
+
+  /* Reduce font size slightly */
+  .editor-light-wrapper .toastui-editor-defaultUI {
+    font-size: 14px;
+  }
+}
